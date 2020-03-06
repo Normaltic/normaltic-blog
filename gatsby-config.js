@@ -3,6 +3,7 @@ module.exports = {
     title: `Normaltic Blog`,
     description: `무럭무럭 자라고 싶은, 주니어 프론트엔드 개발자 김윤지의 블로그입니다.`,
     author: `@normaltic`,
+    siteUrl: `http://normaltic.kim`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
