@@ -10,6 +10,7 @@ exports.createPages = async function({ actions, graphql }) {
             frontmatter {
               title,
               date(formatString: "YYYY.MM.DD"),
+              url,
             }
           }
         }
@@ -19,16 +20,16 @@ exports.createPages = async function({ actions, graphql }) {
   if ( error ) throw error;
 
   data.allMarkdownRemark.edges.forEach( ({node}) => {
+    const { html, frontmatter: { title, date, url } } = node;
     const page = {
-      path: `/${node.frontmatter.title.replace(/\s/gi, '-')}`,
+      path: url || `/${title.replace(/\s/gi, '-')}`,
       context: {
-        html: node.html,
-        title: node.frontmatter.title,
-        date: node.frontmatter.date,
+        html,
+        title,
+        date,
       },
       component: path.resolve(__dirname, './src/components/post.js'),
     };
-    console.log(page);
     createPage(page);
   })
 }

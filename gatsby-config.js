@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Normaltic Blog`,
-    description: `무럭무럭 자라고 싶은, 주니어 프론트엔드 개발자 김윤지의 블로그입니다.`,
-    author: `@normaltic`,
-    siteUrl: `http://normaltic.kim`,
+    title: 'Normaltic Blog',
+    description: '무럭무럭 자라고 싶은, 주니어 프론트엔드 개발자 김윤지의 블로그입니다.',
+    author: '@normaltic',
+    siteUrl: 'http://normaltic.kim',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -12,6 +12,13 @@ module.exports = {
       options: {
         name: `posts`,
         path: `${__dirname}/src/posts`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: 'images',
+        path: `${__dirname}/src/images`,
       },
     },
     {
@@ -24,7 +31,14 @@ module.exports = {
               theme: 'Dark+ (default dark)',
             },
           },
-        ]
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 800,
+              showCaptions: true,
+            },
+          },
+        ],
       }
     },
     `gatsby-transformer-sharp`,
