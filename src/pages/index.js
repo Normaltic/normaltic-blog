@@ -12,12 +12,13 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title='' />
-      {data.allMarkdownRemark.edges.map( ({node}) => (
+      {data.allMarkdownRemark.edges.map( ({node: { id, excerpt, frontmatter: { title, date, url } }}) => (
         <PostCard
-          key={node.id}
-          title={node.frontmatter.title}
-          date={node.frontmatter.date}
-          excerpt={node.excerpt}
+          key={id}
+          url={url || title.replace(/\s/gi, '-')}
+          title={title}
+          date={date}
+          excerpt={excerpt}
         />
       ))}
     </Layout>
@@ -33,6 +34,7 @@ const LatestPostListQuery = graphql`
           frontmatter {
             title,
             date(formatString: "YYYY.MM.DD"),
+            url,
           }
           id
         }
