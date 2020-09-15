@@ -24,9 +24,17 @@ const Content = styled.div`
     padding-right: initial;
   }
 
+  // 일반 텍스트
+  p {
+    text-indent: .5rem;
+    line-height: 1.5rem;
+  }
+
   // ###
   h3 {
     margin-top: 4rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid ${COLOR.LIGHTGRAY};
   }
 
   // ~~
