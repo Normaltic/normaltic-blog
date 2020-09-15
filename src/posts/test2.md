@@ -1,5 +1,5 @@
 ---
-title: 테스트 2번 글 - useValidation
+title: 테스트 2번 글 useValidation
 date: 2020-03-02 17:00:00
 ---
 
